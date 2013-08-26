@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  nom: MyString
+  slug: MyString
+  professeur_id: 1
+  matiere_id: 1
+
+two:
+  nom: MyString
+  slug: MyString
+  professeur_id: 1
+  matiere_id: 1

@@ -1,0 +1,27 @@
+<table class="table table-striped">
+  <tr>
+    <th>#</th>
+    <th>Slug</th>
+    <th>Order</th>
+    <th>Annee</th>
+    <th>Professeur</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @matieres.each do |matiere| %>
+  <tr>
+    <td>#</td>
+    <td><%= link_to matiere.nom, matiere %></td>
+    <td><%= matiere.slug %></td>
+    <td><%= matiere.order %></td>
+    <td><%= matiere.annee_id %></td>
+    <td><%= matiere.professeur_id %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Matiere', new_matiere_path %>

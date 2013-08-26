@@ -1,0 +1,37 @@
+<%= form_for(@matiere) do |f| %>
+  <% if @matiere.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@matiere.errors.count, "error") %> prohibited this matiere from being saved:</h2>
+
+      <ul>
+      <% @matiere.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nom %><br />
+    <%= f.text_field :nom %>
+  </div>
+  <div class="field">
+    <%= f.label :slug %><br />
+    <%= f.text_field :slug %>
+  </div>
+  <div class="field">
+    <%= f.label :order %><br />
+    <%= f.number_field :order %>
+  </div>
+  <div class="field">
+    <%= f.label :annee_id %><br />
+    <%= f.number_field :annee_id %>
+  </div>
+  <div class="field">
+    <%= f.label :professeur_id %><br />
+    <%= f.number_field :professeur_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  nom: MyString
+  slug: MyString
+  order: 1
+  annee_id: 1
+  professeur_id: 1
+
+two:
+  nom: MyString
+  slug: MyString
+  order: 1
+  annee_id: 1
+  professeur_id: 1

@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Nom:</b>
+  <%= @cour.nom %>
+</p>
+
+<p>
+  <b>Slug:</b>
+  <%= @cour.slug %>
+</p>
+
+<p>
+  <b>Professeur:</b>
+  <%= @cour.professeur_id %>
+</p>
+
+<%= link_to "Aperçu", @cour.fichier.url() %>
+
+<p>
+  <b>Matiere:</b>
+  <%= @cour.matiere_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_cour_path(@cour) %> |
+<%= link_to 'Back', cours_path %>

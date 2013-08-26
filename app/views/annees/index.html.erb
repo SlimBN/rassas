@@ -1,0 +1,17 @@
+<table  class="table table-striped">
+  <tr>
+    <th>#</th>
+    <th>Niveau</th>
+    <th>Université</th>
+  </tr>
+
+<% @annees.each do |annee| %>
+  <tr>
+    <td>#</td>
+    <td><%= link_to annee.name, annee %></td>
+    <td><%= annee.university.name %></td>
+  </tr>
+<% end %>
+</table>
+
+

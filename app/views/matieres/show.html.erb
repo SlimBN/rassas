@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+
+
+<ol class="breadcrumb">
+  <li><%= link_to @matiere.annee.university.name, university_path(@matiere.annee.university) %></li>
+  <li><%= link_to @matiere.annee.name, @matiere.annee %></li>
+  <li><%= link_to @matiere.nom, @matiere %></li>
+  <li>Cours</li>
+</ol>
+
+<table  class="table table-striped">
+  <tr>
+    <th>#</th>
+    <th>Cour</th>
+    <th>Nombre de pages</th>
+    <th>Professeur</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% Cour.where('matiere_id = ?', @matiere.id).each do |cour| %>
+  <tr>
+    <td>#</td>
+    <td><%= link_to cour.nom, cour %></td>
+    <td>
+      <% require 'open-uri' %>
+      <% io = open('http://localhost:8080/' + cour.fichier.url()) %>
+
+      <% reader = PDF::Reader.new(io) %>
+      <%= reader.page_count %>
+    </td>
+    <td>
+
+<!--        RGhost::Config::GS[:path]='/usr/local/Cellar/ghostscript/9.07/bin/gs' 
+
+       RGhost::Convert.new('http://localhost:8080' + cour.fichier.url()).to :png, :filename => "../tmp/test.png"   #returns File  -->
+       
+    </td>
+    <td></td>
+    <td><%= link_to "Ajouter à la commande", "deft", :class => "btn btn-default", :data => { :toggle => "button"} %></td>
+    <td><%= link_to "Apercu", "deft", :class => "btn btn-default" %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'Edit', edit_annee_path(@matiere.annee) %> |
+<%= link_to 'Back', annees_path %>

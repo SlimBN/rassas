@@ -1,0 +1,41 @@
+<nav class="navbar navbar-default navbar-static-top" role="navigation">
+	
+	<!-- Brand and toggle get grouped for better mobile display -->
+  	<div class="navbar-header">
+	    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+	      <span class="sr-only">Toggle navigation</span>
+	      <span class="icon-bar"></span>
+	      <span class="icon-bar"></span>
+	      <span class="icon-bar"></span>
+	    </button>
+   		<a class="navbar-brand" href="#">Rassas</a>
+  	</div>
+
+	
+	<div class="collapse navbar-collapse navbar-ex1-collapse">
+	  	<ul class="nav navbar-nav">
+	      <li><%= link_to "Universités", universities_path() %></li>
+	      <li><%= link_to "Années", annees_path() %></li>
+	      <li><%= link_to "Professeurs", professeurs_path() %></li>
+	    </ul>
+
+		<ul class="nav navbar-nav navbar-right">
+
+			<% unless user_signed_in? %>
+	      		<li><button type="button" class="btn btn-default navbar-btn" onclick="location.href='<%= register_path() %>'">M'enregistrer</button></li>
+
+	      		<li>&nbsp;</li>
+
+	      		<li><button type="button" class="btn btn-default navbar-btn" onclick="location.href='<%= login_path() %>'">Me Connecter</button></li>
+
+		      	<% else %>
+		      		<li><button type="button" class="btn btn-default navbar-btn" onclick="location.href='<%= logout_path() %>'">Se Deconnecter</button></li>
+		    <% end %>
+
+	      	<li>&nbsp;</li>
+
+
+
+	    </ul>
+   	</div>
+</nav>

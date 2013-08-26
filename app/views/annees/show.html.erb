@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+
+<ol class="breadcrumb">
+  <li><%= link_to @annee.university.name, university_path(@annee.university) %></li>
+  <li><%= link_to @annee.name, @annee %></li>
+  <li>Matières</li>
+</ol>
+
+<table  class="table table-striped">
+  <tr>
+    <th>#</th>
+    <th>Matières</th>
+    <th>Nombre de Cours</th>
+  </tr>
+
+<% Matiere.where('annee_id = ?', @annee.id).each do |matiere| %>
+  <tr>
+    <td>#</td>
+    <td><%= link_to matiere.nom, matiere %></td>
+    <td><%= Cour.where("matiere_id = ?", matiere.id).count %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'Edit', edit_annee_path(@annee) %> |
+<%= link_to 'Back', annees_path %>
