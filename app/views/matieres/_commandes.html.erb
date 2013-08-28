@@ -1,0 +1,48 @@
+<div id="commandes_list">
+	</br>
+	</br>
+	<div class="row">
+	  <nav class="navbar navbar-default" role="navigation">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <a class="navbar-brand" href="#">Mes Commandes</a>
+	    </div>
+	  </nav>
+	</div>
+
+	<% nombre_de_cours = Commande.where('user_id = ?', current_user.id).count %>
+	<% nombre_de_pages = Commande.where('user_id = ?', current_user.id).sum('number_o_pages') %>
+
+	<div class="alert alert-success">Vous avez <strong><%= nombre_de_cours %> cours</strong> commandé(s), faisant <strong><%= nombre_de_pages %> page(s)</strong> pour un <strong>solde de 10000dt</strong>.</div>
+
+	</br>
+
+	<table  class="table table-striped">
+		<tr>
+		    <th>#</th>
+		    <th>Cour</th>
+		    <th>Nombre de pages</th>
+		    <th>Imprimé</th>
+		    <th></th>
+		    <th></th>
+  		</tr>
+	  <% Commande.where('user_id = ?', current_user.id).each do |commande| %>
+	    <tr>
+	    	<td></td>
+	      	<td><%= commande.cour.nom %></td>
+	      	<td><%= commande.cour.nombre %></td>
+	      	<td><%= commande.done %></td>
+
+	      <% if commande.done %>
+	        <td><span class="glyphicon glyphicon-ok-sign"></span></td>
+	      <% else %>
+	        <td><span class="glyphicon glyphicon-time"></span></td>
+	      <% end %>
+
+	      <td><%= link_to 'Annuler ce cours', commande, :class => "btn btn-danger", method: :delete, remote: true, data: { confirm: 'Are you sure?' } %></td>
+	    </tr>
+	  <% end %>
+	</table>
+
+	
+</div>

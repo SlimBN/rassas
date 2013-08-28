@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130824163019) do
+ActiveRecord::Schema.define(:version => 20130826164955) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -55,6 +55,15 @@ ActiveRecord::Schema.define(:version => 20130824163019) do
     t.datetime "updated_at",    :null => false
   end
 
+  create_table "commandes", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "cour_id"
+    t.boolean  "done"
+    t.integer  "number_o_pages"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
   create_table "cours", :force => true do |t|
     t.string   "nom"
     t.string   "slug"
@@ -66,6 +75,7 @@ ActiveRecord::Schema.define(:version => 20130824163019) do
     t.string   "fichier_content_type"
     t.integer  "fichier_file_size"
     t.datetime "fichier_updated_at"
+    t.integer  "nombre"
   end
 
   create_table "homes", :force => true do |t|

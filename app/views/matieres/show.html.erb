@@ -24,25 +24,41 @@
     <td>#</td>
     <td><%= link_to cour.nom, cour %></td>
     <td>
-      <% require 'open-uri' %>
-      <% io = open('http://localhost:8080/' + cour.fichier.url()) %>
-
-      <% reader = PDF::Reader.new(io) %>
-      <%= reader.page_count %>
+      <%= cour.nombre %>
     </td>
     <td>
 
 <!--        RGhost::Config::GS[:path]='/usr/local/Cellar/ghostscript/9.07/bin/gs' 
 
        RGhost::Convert.new('http://localhost:8080' + cour.fichier.url()).to :png, :filename => "../tmp/test.png"   #returns File  -->
-       
+
     </td>
-    <td></td>
-    <td><%= link_to "Ajouter à la commande", "deft", :class => "btn btn-default", :data => { :toggle => "button"} %></td>
+    <td>
+      
+
+    <%= form_for(Commande.new(params[:commande]), remote: true) do |f| %>
+
+        <%= f.hidden_field :user_id, :value => current_user.id %>
+
+        <%= f.hidden_field :cour_id, :value => cour.id %>
+
+        <%= f.hidden_field :number_o_pages, :value => cour.nombre %>
+
+        <input class="btn btn-default" name="commit" type="submit" value="Ajouter à La Commande" />
+
+    <% end %>
+
+
+
+    </td>
     <td><%= link_to "Apercu", "deft", :class => "btn btn-default" %></td>
   </tr>
 <% end %>
 </table>
 
-<%= link_to 'Edit', edit_annee_path(@matiere.annee) %> |
-<%= link_to 'Back', annees_path %>
+
+<%= render 'matieres/commandes' %>
+
+<div id="commandes_container">
+  
+</div>

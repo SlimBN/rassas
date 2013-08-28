@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_id: 1
+  cour_id: 1
+  done: false
+  number_o_pages: 1
+
+two:
+  user_id: 1
+  cour_id: 1
+  done: false
+  number_o_pages: 1

@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @commande.user.name %>
+</p>
+
+<p>
+  <b>Cour:</b>
+  <%= @commande.cour.nom %>
+</p>
+
+<p>
+  <b>Done:</b>
+  <%= @commande.done %>
+</p>
+
+<p>
+  <b>Number o pages:</b>
+  <%= @commande.number_o_pages %>
+</p>
+
+
+<%= link_to 'Edit', edit_commande_path(@commande) %> |
+<%= link_to 'Back', commandes_path %>

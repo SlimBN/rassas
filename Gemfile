@@ -48,6 +48,9 @@ gem 'jquery-ui-rails'
 # Use unicorn as the app server
 gem 'unicorn'
 
+gem 'better_errors'
+gem "binding_of_caller"
+
 # Deploy with Capistrano
 # gem 'capistrano'
 
