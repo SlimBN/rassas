@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130826164955) do
+ActiveRecord::Schema.define(:version => 20130828090326) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -76,6 +76,13 @@ ActiveRecord::Schema.define(:version => 20130826164955) do
     t.integer  "fichier_file_size"
     t.datetime "fichier_updated_at"
     t.integer  "nombre"
+  end
+
+  create_table "credits", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "value"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "homes", :force => true do |t|

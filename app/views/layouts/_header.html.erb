@@ -15,8 +15,6 @@
 	<div class="collapse navbar-collapse navbar-ex1-collapse">
 	  	<ul class="nav navbar-nav">
 	      <li><%= link_to "Universités", universities_path() %></li>
-	      <li><%= link_to "Années", annees_path() %></li>
-	      <li><%= link_to "Professeurs", professeurs_path() %></li>
 	    </ul>
 
 		<ul class="nav navbar-nav navbar-right">
@@ -29,6 +27,17 @@
 	      		<li><button type="button" class="btn btn-default navbar-btn" onclick="location.href='<%= login_path() %>'">Me Connecter</button></li>
 
 		      	<% else %>
+		      		<li class="dropdown">
+				        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.name %> <b class="caret"></b></a>
+				        <ul class="dropdown-menu">
+				          <li><a href="#"><strong>Credit <%= credit = Credit.where('user_id = ?', current_user.id).sum('value') %> Millimes</strong></a></li>
+				          <li><a href="<%= credits_path() %>"><strong>Mes Transactions</strong></a></li>
+				          <li><a href="<%= commandes_path() %>"><strong>Mes Commandes</strong></a></li>
+				        </ul>
+				    </li>
+
+				    <li>&nbsp;</li>
+
 		      		<li><button type="button" class="btn btn-default navbar-btn" onclick="location.href='<%= logout_path() %>'">Se Deconnecter</button></li>
 		    <% end %>
 

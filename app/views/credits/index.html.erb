@@ -1,0 +1,36 @@
+<h1>Liste de mes transactions</h1>
+
+
+<% @credits.order('created_at DESC').each do |credit| %>
+  <% if credit.value > 0 %>
+    <div class="panel panel-primary">
+
+      <div class="panel-heading">
+        <h3 class="panel-title">Operation de recharge</h3>
+      </div>
+
+      <div class="panel-body">
+        Vous avez imprimer des cours et debiter de votre solde la modique somme de <%= credit.value %>
+      </div>
+    </div>
+
+  <% else %>
+
+    <div class="panel panel-success">
+
+      <div class="panel-heading">
+        <h3 class="panel-title">Impression</h3>
+      </div>
+
+      <div class="panel-body">
+        Vous avez rechargé votre solde de <%= credit.value %>
+      </div>
+    </div>
+
+  <% end %>
+
+<% end %>
+
+<br />
+
+<%= link_to 'New Credit', new_credit_path %>

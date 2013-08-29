@@ -1,4 +1,6 @@
 class CommandesController < InheritedResources::Base
+	before_filter :authenticate_user!
+	
 	def index
 	    @commandes = Commande.all
 

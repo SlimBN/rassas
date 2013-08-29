@@ -1,6 +1,9 @@
 Rassas::Application.routes.draw do
 
 
+  resources :credits
+
+
   resources :commandes
 
 

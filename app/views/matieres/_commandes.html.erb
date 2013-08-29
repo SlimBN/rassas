@@ -12,8 +12,19 @@
 
 	<% nombre_de_cours = Commande.where('user_id = ?', current_user.id).count %>
 	<% nombre_de_pages = Commande.where('user_id = ?', current_user.id).sum('number_o_pages') %>
+	<% credit = Credit.where('user_id = ?', current_user.id).sum('value') %>
 
-	<div class="alert alert-success">Vous avez <strong><%= nombre_de_cours %> cours</strong> commandé(s), faisant <strong><%= nombre_de_pages %> page(s)</strong> pour un <strong>solde de 10000dt</strong>.</div>
+	<% prix = nombre_de_pages * 45 %>
+
+	<% if (prix > credit) %>
+		<div class="alert alert-danger">
+			Vous avez <strong><%= nombre_de_cours %> cours</strong> commandé(s), faisant <strong><%= nombre_de_pages %> page(s)</strong> pour un <strong>solde de <%= credit %> Millimes</strong>. Votre solde n'est pas suffisant pour couvrir <strong>les frais (<%= prix %> Millimes)</strong>. L'operation se fera a la recharge de votre compte.
+		</div>
+	<% else %>
+		<div class="alert alert-success">
+			Vous avez <strong><%= nombre_de_cours %> cours</strong> commandé(s), faisant <strong><%= nombre_de_pages %> page(s)</strong> pour un <strong>solde de <%= credit %> Millimes</strong>. Le prix sera <%= prix %>
+		</div>
+	<% end %>	
 
 	</br>
 
@@ -45,4 +56,9 @@
 	</table>
 
 	
+</div>
+
+
+<div id="commandes_container">
+  
 </div>

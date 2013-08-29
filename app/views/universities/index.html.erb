@@ -1,10 +1,16 @@
+<div class="jumbotron">
+  <div class="container">
+    <h1>Bien le bonjours à vous dans votre compagnon reussite!</h1>
+    <p>La plateforme est destinée à être intuitive et simple d'utilisation, c'est à dire, il vous suffit de choisir la faculté qui vous correspond, le niveau, la matiere et d'ajouter les cours desirés à votre compte. Nous les imprimerons pour vous faire gagner du temps, et la somme vous sera debitée de votre solde rechargeable a notre bureau.</p>
+    <p>Aussi simple que ca, bonne chance :)</p>
+  </div>
+</div>
 
 <table  class="table table-striped">
   <tr>
     <th>#</th>
     <th>L'université</th>
     <th>Nombre de Niveaux</th>
-    <th></th>
   </tr>
 
 <% @universities.each do |university| %>
@@ -12,7 +18,6 @@
     <td>#</td>
     <td><%= link_to university.name, university_path(university) %></td>
     <td><%= Annee.where('university_id = ?', university.id).count %></td>
-    <td><%= link_to 'Edit', edit_university_path(university) %></td>
   </tr>
 <% end %>
 </table>

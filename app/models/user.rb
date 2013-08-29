@@ -10,4 +10,5 @@ class User < ActiveRecord::Base
   attr_accessible :name, :university_id, :year_id
 
   has_many :commandes
+  has_many :credits
 end
