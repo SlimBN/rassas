@@ -8,6 +8,12 @@ class CommandesController < InheritedResources::Base
 	      format.html # index.html.erb
 	      format.json { render json: @commandes }
 	    end
+	end	
+
+	def print
+	    respond_to do |format|
+	      format.js { render :action => '../commandes/print'}
+	    end
 	end
 
 	def create

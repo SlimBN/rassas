@@ -1,0 +1,25 @@
+	<% User.all.each do |user| %>
+		<% nombre_de_cours = Commande.where('user_id = ?', user.id).count %>
+		<% nombre_de_pages = Commande.where('user_id = ?', user.id).sum('number_o_pages') %>
+		<% credit = Credit.where('user_id = ?', user.id).sum('value') %>
+
+		<% prix = nombre_de_pages * 45 %>
+
+		<% if (prix < credit) %>
+			<table  class="table table-striped" border="0" cellspacing="0" cellpadding="0" id="index_table_commandes" class="index_table index" paginator="true">
+				<tr>
+				    <th>Client</th>
+				    <th>Nombre de pages</th>
+				    <th>Nombre de cours</th>
+				    <th>Prix</th>
+				    <th>Commandé le</th>
+				    <th><%= link_to "imprimer", print_path(user), id: "print", remote: true %></th>
+		  		</tr>
+		  		<tr>
+		  			<th><%= user.name %></th>
+		  			<th><%= nombre_de_pages %></th>
+		  			<th><%= nombre_de_cours %></th>
+		  			<th><%= prix %></th>
+		  		</tr>
+		<% end %>
+	<% end %>

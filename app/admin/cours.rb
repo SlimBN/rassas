@@ -2,6 +2,7 @@ ActiveAdmin.register Cour do
 
   index do
     column :nom
+    column :matiere
     column "Nombre de Pages", :nombre
     column "Ajoute le", :created_at
     default_actions

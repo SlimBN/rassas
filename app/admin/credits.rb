@@ -1,8 +1,8 @@
 ActiveAdmin.register Credit do
     index do
-	    column :id
-	    column :user
-	    column "Nombre de Pages", :value
+	    column "ID de l'operation", :id
+	    column "Utilisateur", :user
+	    column "Montant de l'operation", :value
 	    column "Ajoute le", :created_at
 	    default_actions
 	end

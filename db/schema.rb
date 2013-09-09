@@ -91,7 +91,7 @@ ActiveRecord::Schema.define(:version => 20130828090326) do
   end
 
   create_table "matieres", :force => true do |t|
-    t.string   "nom"
+    t.string   "name"
     t.string   "slug"
     t.integer  "order"
     t.integer  "annee_id"

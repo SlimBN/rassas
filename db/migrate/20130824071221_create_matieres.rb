@@ -1,7 +1,7 @@
 class CreateMatieres < ActiveRecord::Migration
   def change
     create_table :matieres do |t|
-      t.string :nom
+      t.string :name
       t.string :slug
       t.integer :order
       t.integer :annee_id

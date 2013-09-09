@@ -17,7 +17,7 @@
 <% Matiere.where('annee_id = ?', @annee.id).each do |matiere| %>
   <tr>
     <td>#</td>
-    <td><%= link_to matiere.nom, matiere %></td>
+    <td><%= link_to matiere.name, matiere %></td>
     <td><%= Cour.where("matiere_id = ?", matiere.id).count %></td>
   </tr>
 <% end %>
