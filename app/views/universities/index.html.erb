@@ -1,25 +1,85 @@
-<div class="jumbotron">
-  <div class="container">
-    <h1>Bien le bonjours à vous dans votre compagnon reussite!</h1>
-    <p>La plateforme est destinée à être intuitive et simple d'utilisation, c'est à dire, il vous suffit de choisir la faculté qui vous correspond, le niveau, la matiere et d'ajouter les cours desirés à votre compte. Nous les imprimerons pour vous faire gagner du temps, et la somme vous sera debitée de votre solde rechargeable a notre bureau.</p>
-    <p>Aussi simple que ca, bonne chance :)</p>
+
+<div id="carousel-example-generic" class="carousel slide">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div class="item active">
+      <%= image_tag "slider.jpg" %>
+    </div>
+
+    <div class="item">
+      <%= image_tag "slider.jpg" %>
+    </div>
+
+    <div class="item">
+      <%= image_tag "slider.jpg" %>
+    </div>
+
+    <div class="item">
+      <%= image_tag "slider.jpg" %>
+    </div>
+
+    <div class="item">
+      <%= image_tag "slider.jpg" %>
+    </div>
+
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+    <span class="icon-prev"></span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+    <span class="icon-next"></span>
+  </a>
+</div>
+
+
+
+<div id="mainbigblock">
+  
+  <div id="leftblock">
+
+    <div class="jumbotron">
+      <div class="container">
+        <h3>Bien le bonjours à vous dans votre compagnon reussite!</h3>
+        <p>La plateforme est destinée à être intuitive et simple d'utilisation, c'est à dire, il vous suffit de choisir la faculté qui vous correspond, le niveau, la matiere et d'ajouter les cours desirés à votre compte. Nous les imprimerons pour vous faire gagner du temps, et la somme vous sera debitée de votre solde rechargeable a notre bureau.</p>
+        <p>Aussi simple que ca, bonne chance :)</p>
+      </div>
+    </div>
+
+    <table  class="table table-striped">
+      <tr>
+        <th>#</th>
+        <th>L'université</th>
+        <th>Nombre de Niveaux</th>
+      </tr>
+
+    <% @universities.each do |university| %>
+      <tr>
+        <td>#</td>
+        <td><%= link_to university.name, university_path(university) %></td>
+        <td><%= Annee.where('university_id = ?', university.id).count %></td>
+      </tr>
+    <% end %>
+    </table>    
+
+  </div>
+
+  <div id="rightblock">
+    
+    <div id="mybox">
+      <%= image_tag "map.png" %>
+    </div>
   </div>
 </div>
 
-<table  class="table table-striped">
-  <tr>
-    <th>#</th>
-    <th>L'université</th>
-    <th>Nombre de Niveaux</th>
-  </tr>
-
-<% @universities.each do |university| %>
-  <tr>
-    <td>#</td>
-    <td><%= link_to university.name, university_path(university) %></td>
-    <td><%= Annee.where('university_id = ?', university.id).count %></td>
-  </tr>
-<% end %>
-</table>
 
 

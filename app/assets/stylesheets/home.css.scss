@@ -1,0 +1,41 @@
+// Place all the styles related to the annees controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+#mainbigblock {
+
+	width: 1140px;
+
+	margin: 0 auto;
+	margin-top: 10px;
+
+	#leftblock {
+		width: 600px;
+
+		margin-right: 5px;
+
+		vertical-align: top;
+		display: inline-block;
+	}
+
+	#rightblock {
+		width: 400px;
+
+		margin-left: 5px;
+
+		vertical-align: top;
+		display: inline-block;
+
+		#mybox {
+				border-radius: 5px;
+				
+				box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+			img {
+				border-radius: 5px;
+				
+				box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+			}
+		}
+	}
+}
