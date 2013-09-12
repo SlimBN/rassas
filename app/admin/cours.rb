@@ -1,7 +1,7 @@
 ActiveAdmin.register Cour do
 
   index do
-    column :nom
+    column :name
     column :matiere
     column "Nombre de Pages", :nombre
     column "Ajoute le", :created_at
@@ -11,9 +11,8 @@ ActiveAdmin.register Cour do
  form :html => { :enctype => "multipart/form-data" } do |f|
    f.inputs "Details" do
     f.input :matiere
-    f.input :nom
+    f.input :name
     f.input :fichier, :as => :file
-    f.input :nombre
   end
   f.buttons
  end

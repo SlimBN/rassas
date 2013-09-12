@@ -1,5 +1,5 @@
 class Cour < ActiveRecord::Base
-	attr_accessible :matiere_id, :nom, :professeur_id, :slug, :fichier, :nombre
+	attr_accessible :matiere_id, :name, :professeur_id, :slug, :fichier, :nombre
 
 	has_attached_file :fichier,
                   :url  => "/assets/cours/:id/:style/:basename.:extension",

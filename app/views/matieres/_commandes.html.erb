@@ -40,7 +40,7 @@
 	  <% Commande.where('user_id = ?', current_user.id).each do |commande| %>
 	    <tr>
 	    	<td></td>
-	      	<td><%= commande.cour.nom %></td>
+	      	<td><%= commande.cour.name %></td>
 	      	<td><%= commande.cour.nombre %></td>
 	      	<td><%= commande.done %></td>
 
