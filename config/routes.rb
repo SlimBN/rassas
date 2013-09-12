@@ -1,6 +1,15 @@
 Rassas::Application.routes.draw do
 
 
+  resources :answers
+
+
+  resources :topics
+
+
+  resources :parents
+
+
   resources :credits
 
 

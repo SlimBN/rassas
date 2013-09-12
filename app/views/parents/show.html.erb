@@ -1,0 +1,36 @@
+
+<div></br></div>
+
+<ul class="nav nav-pills nav-justified">
+  <% if user_signed_in? %>
+  <li class="active">
+    <a href="<%= new_topic_path() %>">
+      Nouveau Sujet
+    </a>
+  </li>
+  <% end %>
+  <li>
+    <a href="#">
+      <%= Topic.where("university_id = ?", @university.id).count %> Sujets
+    </a>
+  </li>
+</ul>
+
+<div></br></div>
+
+
+<div class="alert alert-info"><%= @university.name %></div>
+
+<table class="table table-hover">
+    <table class="table table-condensed">
+      <tr>
+    <% Topic.where('university_id = ?', @university.id).order('created_at').each do |topic| %>
+        <td><%= topic.id %></td>
+        <td><%= link_to topic.title, topic_path(topic) %></td>
+        <td><%= topic.user.name %></td>
+        <td><%= Answer.where('topic_id = ?', topic.id).count %> Réponses</td>
+      </tr>
+    <% end %>
+    </table>
+</table>
+  

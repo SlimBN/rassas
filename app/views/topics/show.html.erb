@@ -1,0 +1,51 @@
+<div class="page-header">
+  <h1><%= @topic.title %></h1>
+</div>
+
+<div class="alert alert-info">
+    <%= @topic.content %>
+
+</div>
+
+    <blockquote>
+	  <small><%= @topic.user.name %> - <%= @topic.created_at %></small>
+	</blockquote>
+
+<div><br></div>
+
+<% Answer.where("topic_id = ?", @topic.id).order('created_at').each do |answer| %>
+  	
+  	<div class="well alert alert-warning">
+    	<%= answer.content %>
+  	</div>		
+	<blockquote class=" alert-success">
+	  <small><%= answer.user.name %> - <%= answer.created_at %></small>
+	</blockquote>
+
+<div><br></div>
+
+
+<% end %>
+
+<% if user_signed_in? %>
+	<%= form_for(Answer.new) do |f| %>
+  
+		<div class="field">
+		    <%= f.label :content %><br />
+		    <%= f.text_area :content, :class => "form-control", :rows => "4" %>
+	  	</div>
+
+		    <%= f.hidden_field :user_id, :value => current_user.id %>
+
+		    <%= f.hidden_field :topic_id, :value => @topic.id %>
+
+<br>
+
+	  	<div class="actions">
+	    	<%= f.submit %>
+	  	</div>
+	
+	<% end %>
+<% end %>
+
+

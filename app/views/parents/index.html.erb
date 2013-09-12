@@ -1,0 +1,45 @@
+
+<div></br></div>
+
+<ul class="nav nav-pills nav-justified">
+  <% if user_signed_in? %>
+  <li class="active">
+    <a href="<%= new_topic_path() %>">
+      Nouveau Sujet
+    </a>
+  </li>
+  <% end %>
+  <li>
+    <a href="#">
+      <%= Topic.count %> Sujets
+    </a>
+  </li>
+  <li>
+    <a href="#">
+      <%= Answer.count %> Réponses
+    </a>
+  </li>
+</ul>
+
+<div></br></div>
+
+<% University.order('name').each do |university| %>
+
+  <div class="alert alert-info">
+    <h5><%= link_to university.name, parent_path(university) %></h5>
+  </div>
+
+  <table class="table table-hover">
+    <table class="table table-condensed">
+    <% Topic.where('university_id = ?', university.id).order('created_at').last(5).each do |topic| %>
+      <tr>
+        <td><%= topic.id %></td>
+        <td><%= link_to topic.title, topic_path(topic) %></td>
+        <td><%= topic.user.name %></td>
+        <td><%= Answer.where('topic_id = ?', topic.id).count %> Réponses</td>
+      </tr>
+    <% end %>
+    </table>
+  </table>
+  
+<% end %>

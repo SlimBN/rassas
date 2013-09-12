@@ -11,9 +11,21 @@ class CommandesController < InheritedResources::Base
 	end	
 
 	def print
-	    respond_to do |format|
-	      format.js { render :action => '../commandes/print'}
-	    end
+		@commande = Commande.find(params[:id])
+		@cour = Cour.find(@commande.cour_id)
+		@credit = Credit.where("user_id = ?", @commande.user.id).sum('value')
+
+		respond_to do |format|
+			# print @cour.fichier.path()
+			@newcredit = 0 - (@cour.nombre * 45)
+			@balance = @credit + @newcredit
+			suckthis = Credit.new(:user_id => @commande.user.id, :value => @newcredit, :balance => @balance)
+			suckthis.save
+			@commande.destroy
+
+			#format.js { render :action => '../commandes/print'}
+	      	format.html { redirect_to admin_commandes_path() }
+		end
 	end
 
 	def create

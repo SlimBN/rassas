@@ -1,0 +1,55 @@
+
+	<table  class="table table-striped">
+			<tr>
+			    <th>Client</th>
+			    <th>Nombre de pages</th>
+			    <th>Nombre de cours</th>
+			    <th>Nom Du Cour</th>
+			    <th>Totale des pages</th>
+			</tr>
+			
+			<% User.all.each do |user| %>
+				<% nombre_de_cours = Commande.where('user_id = ?', user.id).count %>
+				<% nombre_de_pages = Commande.where('user_id = ?', user.id).sum('number_o_pages') %>
+				<% credit = Credit.where('user_id = ?', user.id).sum('value') %>
+
+				<% prix = nombre_de_pages * 45 %>
+
+				<% if (prix < credit) %>
+					<tr>
+						<th><%= user.name %> (<%= prix %>)</th>
+						<th><%= nombre_de_pages %></th>
+						<th><%= nombre_de_cours %></th>
+					    <th></th>
+					</tr>
+					<% Commande.where('user_id = ?', user.id).each do |commande| %>
+						<% Cour.where('id = ?', commande.cour_id).each do |cour| %>
+					<tr>
+						<th></th>
+						<th></th>
+						<th></th>
+						<th></th>
+						<th><%= cour.name %></th>
+						<th><%= cour.nombre %></th>
+						
+						<script type="text/javascript">
+						function printPDF(pdfUrl) 
+							{
+							    var w = window.open(pdfUrl);
+								w.print();
+							    //window.setTimeOut(w.close(),80000);
+							    //w.close();
+							}
+						</script>
+
+						<th><%= cour.fichier.url() %></th>
+
+					    <th>
+							<a href="" onClick="printPDF('<%= cour.fichier.url() %>');">Imprimer</a>
+					    	<%= link_to "imprimer", print_path(commande), id: "print", remote: true %></th>
+					</tr>
+						<% end %>
+					<% end %>
+				<% end %>
+			<% end %>
+		</table>

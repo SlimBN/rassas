@@ -1,0 +1,40 @@
+<%= form_for(@topic) do |f| %>
+  <% if @topic.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@topic.errors.count, "error") %> prohibited this topic from being saved:</h2>
+
+      <ul>
+      <% @topic.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.text_field :title, :class => 'form-control', :placeholder => 'Titre de votre sujet' %>
+  </div>
+
+  </br>
+
+  <div class="field">
+    <%= f.text_area :content, :class => 'form-control', :placeholder => 'Tapez votre texte, question ou contenu de votre sujet', :rows => "8" %>
+  </div>
+
+</br>
+
+  <div class="field">
+    <select class="form-control" id="topic_university_id" name="topic[university_id]">
+      <% University.order('name').each do |university| %>
+        <option value='<%= university.id %>'><%= university.name %></option>
+      <% end %>
+    </select>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+  </div>
+
+</br>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

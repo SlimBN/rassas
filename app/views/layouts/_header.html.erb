@@ -8,13 +8,14 @@
 	      <span class="icon-bar"></span>
 	      <span class="icon-bar"></span>
 	    </button>
-   		<a class="navbar-brand" href="#">Rassas</a>
+	    <%= link_to "Rassas", root_path(), :class => "navbar-brand" %>
   	</div>
 
 	
 	<div class="collapse navbar-collapse navbar-ex1-collapse">
 	  	<ul class="nav navbar-nav">
 	      <li><%= link_to "Universités", universities_path() %></li>
+	      <li><%= link_to "Communauté", parents_path() %></li>
 	    </ul>
 
 		<ul class="nav navbar-nav navbar-right">

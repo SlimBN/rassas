@@ -1,6 +1,10 @@
 Rassas::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
+  #FOR THE PDF MERGER PART
+  ENV["LC_ALL"] = "en_US.utf8"
+
+  
  # Code is not reloaded between requests
   config.cache_classes = true
 

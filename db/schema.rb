@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130828090326) do
+ActiveRecord::Schema.define(:version => 20130912133621) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -55,6 +55,14 @@ ActiveRecord::Schema.define(:version => 20130828090326) do
     t.datetime "updated_at",    :null => false
   end
 
+  create_table "answers", :force => true do |t|
+    t.text     "content"
+    t.integer  "user_id"
+    t.integer  "topic_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "commandes", :force => true do |t|
     t.integer  "user_id"
     t.integer  "cour_id"
@@ -65,7 +73,7 @@ ActiveRecord::Schema.define(:version => 20130828090326) do
   end
 
   create_table "cours", :force => true do |t|
-    t.string   "nom"
+    t.string   "name"
     t.string   "slug"
     t.integer  "professeur_id"
     t.integer  "matiere_id"
@@ -83,6 +91,7 @@ ActiveRecord::Schema.define(:version => 20130828090326) do
     t.integer  "value"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "balance"
   end
 
   create_table "homes", :force => true do |t|
@@ -100,11 +109,25 @@ ActiveRecord::Schema.define(:version => 20130828090326) do
     t.datetime "updated_at",    :null => false
   end
 
+  create_table "parents", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "professeurs", :force => true do |t|
     t.string   "name"
     t.string   "slug"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "topics", :force => true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.integer  "user_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.integer  "university_id"
   end
 
   create_table "universities", :force => true do |t|

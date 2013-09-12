@@ -22,6 +22,9 @@ gem 'bootstrap-sass', :git => 'git://github.com/thomas-mcdonald/bootstrap-sass.g
 
 # PDF manipulation T_T slowed down my fuckin laptop to unbearable points... T_T
 gem 'pdf-reader'
+gem 'pdf-merger'
+gem 'rjb'
+gem 'active_pdftk', :git => "git://github.com/tcocca/active_pdftk.git"
 gem 'rghost'
 
 # Gems used only for assets and not required
@@ -50,6 +53,7 @@ gem 'unicorn'
 
 gem 'better_errors'
 gem "binding_of_caller"
+gem 'meta_request'
 
 # Deploy with Capistrano
 # gem 'capistrano'
