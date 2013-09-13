@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130912133621) do
+ActiveRecord::Schema.define(:version => 20130913190719) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -84,6 +84,10 @@ ActiveRecord::Schema.define(:version => 20130912133621) do
     t.integer  "fichier_file_size"
     t.datetime "fichier_updated_at"
     t.integer  "nombre"
+    t.string   "preview_file_name"
+    t.string   "preview_content_type"
+    t.integer  "preview_file_size"
+    t.datetime "preview_updated_at"
   end
 
   create_table "credits", :force => true do |t|

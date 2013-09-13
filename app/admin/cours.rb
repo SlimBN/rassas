@@ -13,6 +13,7 @@ ActiveAdmin.register Cour do
     f.input :matiere
     f.input :name
     f.input :fichier, :as => :file
+    f.input :preview, :as => :file
   end
   f.buttons
  end

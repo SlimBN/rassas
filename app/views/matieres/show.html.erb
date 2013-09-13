@@ -14,9 +14,7 @@
     <th>Cour</th>
     <th>Nombre de pages</th>
     <th>Professeur</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Aperçu</th>
   </tr>
 
 <% Cour.where('matiere_id = ?', @matiere.id).each do |cour| %>
@@ -41,6 +39,15 @@
 
       <% end %>
     </td>
+
+    <% unless cour.preview.blank? %>
+    <td>
+      <%= link_to "Apercu", cour.preview.url(), :class => "btn btn-default" %>
+    </td>
+    <% else %>
+      <td></td>
+    <% end %>
+
 
   </tr>
 <% end %>
