@@ -36,6 +36,10 @@ ActiveAdmin.register Commande do
         	link_to "Imprimer", "#", :onClick => "printPDF('" + Cour.find(fichier.cour_id).fichier.url() + "');"
       	end
 
+      	column "Balance" do |fichier|
+        	Credit.where('user_id = ?', fichier.user_id).sum('value')
+      	end
+
       	column "Fini(s)" do |commande|
         	link_to "Fini(s)", print_path(commande.id)
       	end
