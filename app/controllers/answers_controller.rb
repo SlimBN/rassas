@@ -1,4 +1,5 @@
 class AnswersController < InheritedResources::Base
+	layout "forums"
 
 	def create
 		@answer = current_user.answers.build(params[:answer])
