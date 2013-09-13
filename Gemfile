@@ -5,7 +5,7 @@ gem 'rails', '3.2.14'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+gem 'pg'
 
 # User Authentication
 gem "devise"
@@ -22,8 +22,6 @@ gem 'bootstrap-sass', :git => 'git://github.com/thomas-mcdonald/bootstrap-sass.g
 
 # PDF manipulation T_T slowed down my fuckin laptop to unbearable points... T_T
 gem 'pdf-reader'
-gem 'pdf-merger'
-gem 'rjb'
 gem 'active_pdftk', :git => "git://github.com/tcocca/active_pdftk.git"
 gem 'rghost'
 

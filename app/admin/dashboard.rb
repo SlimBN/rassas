@@ -7,7 +7,7 @@ ActiveAdmin.register_page "Dashboard" do
       span :class => "blank_slate" do
         #span I18n.t("active_admin.dashboard_welcome.welcome")
         #small I18n.t("active_admin.dashboard_welcome.call_to_action")
-        span "Ya Marhba :) Ya Marhba bik fi 7ochna"
+        span "Bienvenu dans le centre d'administration de Renima.tn"
         small "D'ici vous etes dans la capacite de gerer la totalite de votre plateforme, en vous appuiyant sur les onglets presents en haut."
       end
     end
