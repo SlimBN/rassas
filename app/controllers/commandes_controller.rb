@@ -17,7 +17,7 @@ class CommandesController < InheritedResources::Base
 
 		respond_to do |format|
 			# print @cour.fichier.path()
-			@newcredit = 0 - (@cour.nombre * 45)
+			@newcredit = 0 - (@cour.nombre * 40)
 			@balance = @credit + @newcredit
 			suckthis = Credit.new(:user_id => @commande.user.id, :value => @newcredit, :balance => @balance)
 			suckthis.save

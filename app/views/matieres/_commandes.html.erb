@@ -14,7 +14,7 @@
 	<% nombre_de_pages = Commande.where('user_id = ?', current_user.id).sum('number_o_pages') %>
 	<% credit = Credit.where('user_id = ?', current_user.id).sum('value') %>
 
-	<% prix = nombre_de_pages * 45 %>
+	<% prix = nombre_de_pages * 40 %>
 
 	<% if (prix > credit) %>
 		<div class="alert alert-danger">
